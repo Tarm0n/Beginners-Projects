@@ -1,2 +1,1 @@
-# Games
 # my beginners' projects
