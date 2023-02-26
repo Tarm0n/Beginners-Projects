@@ -1,0 +1,63 @@
+import random
+
+wannaplay = input("Do you want to play? ").lower()
+
+while wannaplay == "yes":
+    print("Let's start")
+    answer = random.randint(1,100)
+    guess = int(input("Guess a number between 1-100: "))
+    counter = 1
+
+    if guess > 100:
+        print("Your guess is out of range!")
+        guess = int(input("Guess a number between 1-100: "))
+        counter +=1
+    if guess < 0:
+        print("Your guess is out of range!")
+        guess = int(input("Guess a number between 1-100: "))
+        counter +=1
+            
+    while guess != answer:
+        if guess > answer and not guess > 100:
+            print("Your guess is too large!")
+            guess = int(input("Guess a number between 1-100: "))
+            counter +=1
+        if guess < answer and not guess < 0:
+            print("Your guess is too small!")
+            guess = int(input("Guess a number between 1-100: "))
+            counter +=1
+    if guess == answer:
+        print("Congrats!")
+        print(f"You tried {counter} times.")
+    wannaplay = input("Do you want to play? ").lower()
+
+if wannaplay =="no":
+    print("Aight, cya")
+    
+
+while wannaplay != "no" and wannaplay != "yes":
+    print("I don't understand what you are saying. Please type yes or no.")
+    wannaplay = input("Do you want to play? ").lower()
+
+    while wannaplay == "yes":
+        print("Let's start")
+        answer = random.randint(1,100)
+        guess = int(input("Guess a number between 1-100: "))
+        counter = 1
+
+        while guess != answer:
+            if guess > answer:
+                print("Your guess is too large!")
+                guess = int(input("Guess a number between 1-100: "))
+                counter +=1
+            if guess < answer:
+                print("Your guess is too small!")
+                guess = int(input("Guess a number between 1-100: "))
+                counter +=1
+            if guess == answer:
+                print("Congrats!")
+                print(f"You tried {counter} times.")
+                wannaplay = input("Do you want to play? ").lower()
+
+    if wannaplay =="no":
+        print("Aight, cya")
