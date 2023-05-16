@@ -1,0 +1,91 @@
+import java.util.Scanner;
+
+public class Wärmepumpe
+{
+    double temperatur;
+
+    /**
+         * setzt die Temperatur aud einen Anfangswert von 15.5°C
+         */
+    public Wärmepumpe(){
+        temperatur = 15.5; 
+    }
+    /**
+         * gibt die Temperatur zurück
+         */
+    public double bekommeTemperatur(){
+        return temperatur; 
+    }
+    /**
+     * erhöht die Temperatur um 0.5°C
+     */
+    public void waermer(){
+        if(temperatur <= 44.5){
+            temperatur += 0.5;
+        }else{
+            System.out.println("Die Temperatur darf nich höher als 45°C werden.");
+        }
+    }
+    /**
+     * senkt die Temperatur um 0.5°C
+     */
+    public void kaelter(){
+        if(temperatur >= 0.5){
+            temperatur -= 0.5;
+        }else{
+            System.out.println("Die Temperatur darf nich weniger als °C werden.");
+        }
+    }
+    /**
+     * erhöht die Temperatur um 5°C
+     */
+    public void schnellWaermer(){
+        if(temperatur <= 40){
+            temperatur += 5;
+        }else{
+            System.out.println("Die Temperatur darf nich höher als 45°C werden.");
+        }
+    }
+    /**
+     * senkt die Temperatur um 5°C
+     */
+    public void schnellKaelter(){
+        if(temperatur >= 5){
+            temperatur -= 5;
+        }else{
+            System.out.println("Die Temperatur darf nich weniger als 0°C werden.");
+        }
+    }
+    /**
+     * setzt die Temperatur direkt auf den eingegebenen Wert.
+     */
+    public void wunschTemperatur(int temp){
+        if(temp >= 0 && temp <= 45){
+            temperatur = temp;
+        }
+    }
+    /**
+     * stellt eine zufällige Temperatur ein.
+     */
+    public void partyModus(){
+        double randomNum = (double)(Math.random() * 45);
+        temperatur = randomNum;
+    }
+    /**
+     * stellt die Temperatur aud einen auf der Tastatur eingegebenen Wert ein.
+     */
+    public void temperaturEingabe(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Bitte geben Sie die gewünschte Temperatur ein. ");
+        double temp = in.nextDouble();
+        temperatur = temp;
+        System.out.println("Die aktuelle Temperatur beträgt " + temperatur);
+    }
+    /**
+     * Gibt die aktuelle Temperatur auf der Konsole aus (gerundet).
+     */
+    public void zeigeTemperatur(){
+        int gerundet = (int)temperatur;
+        System.out.println(gerundet);
+    }
+}
