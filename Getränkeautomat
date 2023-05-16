@@ -1,0 +1,131 @@
+import java.util.Scanner;
+import java.util.Random;
+public class Getraenkeautomat
+{
+    int anzCola;
+    int anzBier;
+    int anzWasser;
+    double pCola;
+    double pBier;
+    double pWasser;
+    String fuellstand;
+    Scanner scanner = new Scanner(System.in);
+    Random random = new Random();
+    public void setzeAnzUPreis(){
+        anzCola = 10;
+        anzBier = 10;
+        anzWasser = 10;
+        pCola = 1.50;
+        pBier = 2.00;
+        pWasser = 1.00;
+    }
+    public int fsCola(){
+        return anzCola;
+    }
+    public void füllCola(int Anzahl){
+        anzCola = Anzahl;
+    }
+    public void gibCola(){
+        anzCola -= 1;
+        System.out.println("Hier ist Ihre Cola.");
+    }
+    public void gibBier(){
+        anzBier -= 1;
+        System.out.println("Hier ist Ihr Bier.");
+    }
+    public void gibWasser(){
+        anzWasser -= 1;
+        System.out.println("Hier ist Ihr Wasser.");
+    }
+    public void menu(){
+        System.out.println("Hallo! Was möchten Sie trinken?\n(0) Cola\n(1) Bier\n(2) Wasser\n(3) zufälliges Getränk");
+        int wahl = scanner.nextInt();
+        if(wahl == 0){
+            if(anzCola<=0){
+                System.out.println("Es gibt leider keine Cola mehr. Bitte wählen Sie ein anderes Getränk.");
+                int wahl2 = scanner.nextInt();
+                    if(wahl2 == 1){
+                        gibBier();
+                    }
+                    else if(wahl2 == 2){
+                        gibWasser();
+                    }
+                    else if(wahl2 == 3){
+                    int zahl = random.nextInt(3);
+                    if(zahl == 0){
+                        gibCola();
+                    }
+                    else if(zahl == 1){
+                        gibBier();
+                    }
+                        else if(zahl == 2){
+                        gibWasser();
+                        }
+                }
+            }
+            else{
+                gibCola();
+            }
+        }
+        else if(wahl == 1){
+            gibBier();
+        }
+        else if(wahl == 2){
+            gibWasser();
+        }
+        else if(wahl == 3){
+            int zahl = random.nextInt(3);
+            if(zahl == 0){
+                gibCola();
+            }
+            else if(zahl == 1){
+                gibBier();
+            }
+            else if(zahl == 2){
+                gibWasser();
+            }
+        }
+    }
+    public void zeigeFuellstand(){
+        System.out.println("---------- Getränkefüllstand ----------");
+        fuellstand = ("Cola ");
+        for(int i = 1; i <= anzCola; i++){
+            if(i != 5 && i!= 10){
+                fuellstand += "|";
+            }
+            else if(i == 5){
+                fuellstand += "5";
+            }
+            else if (i == 10){
+                fuellstand += "10";
+            }
+        }
+        System.out.println(fuellstand);
+        fuellstand = ("Bier ");
+        for(int i = 1; i <= anzBier; i++){
+            if(i != 5 && i!= 10){
+                fuellstand += "|";
+            }
+            else if(i == 5){
+                fuellstand += "5";
+            }
+            else if (i == 10){
+                fuellstand += "10";
+            }
+        }
+        System.out.println(fuellstand);
+        fuellstand = ("Wasser ");
+        for(int i = 1; i <= anzWasser; i++){
+            if(i != 5 && i!= 10){
+                fuellstand += "|";
+            }
+            else if(i == 5){
+                fuellstand += "5";
+            }
+            else if (i == 10){
+                fuellstand += "10";
+            }
+        }
+        System.out.println(fuellstand);
+    }
+}
